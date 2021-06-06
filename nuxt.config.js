@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-export default {
+const nuxtConfig = {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -67,4 +67,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  generate: {
+    // choose to suit your project
+    interval: 2000,
+  },
+  env: {
+    ghostApiUrl: process.env.GHOST_API_URL,
+    ghostApiKey: process.env.GHOST_API_KEY,
+  },
 }
+
+export default nuxtConfig

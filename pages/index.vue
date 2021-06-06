@@ -1,5 +1,28 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row>
+    <v-col cols="8">
+      <v-sheet rounded="lg" color="white" elevation="1">
+        <v-card
+          elevation="2"
+          min-height="100px"
+          min-width="100px"
+          color="white"
+        ></v-card>
+      </v-sheet>
+    </v-col>
+
+    <v-col cols="4">
+      <v-sheet rounded="lg" color="white" elevation="1">
+        <v-card
+          elevation="2"
+          min-height="100px"
+          min-width="100px"
+          color="white"
+        ></v-card>
+      </v-sheet>
+    </v-col>
+  </v-row>
+  <!-- <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <div class="text-center">
         <logo />
@@ -77,17 +100,24 @@
         </v-card-actions>
       </v-card>
     </v-col>
-  </v-row>
+  </v-row> -->
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+// import Logo from '~/components/Logo.vue'
+// import VuetifyLogo from '~/components/VuetifyLogo.vue'
+// import api from '~/api'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo,
+    // Logo,
+    // VuetifyLogo,
+  },
+  async mounted() {
+    // const pages = await api.page.getAll()
+    // const posts = await api.post.getAll()
+    // console.log(pages)
+    // console.log(posts)
   },
 }
 </script>
