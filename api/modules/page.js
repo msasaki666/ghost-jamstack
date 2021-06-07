@@ -28,6 +28,16 @@ const page = {
         console.error(err)
       })
   },
+  async getByTag(tag) {
+    return await apiCore.pages
+      .browse({
+        limit: 'all',
+        filter: `tag:${tag}`,
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  },
 }
 
 export default page
