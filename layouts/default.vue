@@ -1,6 +1,12 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer v-model="drawer" :clipped="clipped" fixed app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :clipped="clipped"
+      fixed
+      temporary
+      app
+    >
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -33,7 +39,7 @@
       </v-container>
     </v-main>
     <v-footer absolute app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ 2021 }}-{{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
@@ -47,13 +53,8 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Top',
           to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
         },
         {
           icon: 'mdi-chart-bubble',
