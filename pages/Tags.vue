@@ -1,6 +1,6 @@
 <template>
   <div class="tags">
-    <div>タグ</div>
+    <div>Tags</div>
     <ul>
       <li v-for="tag in tags" :key="tag.uuid">
         <nuxt-link :to="{ path: `/tags/${tag.slug}` }">{{

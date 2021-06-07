@@ -72,7 +72,7 @@ export default {
           to: '/tags',
         },
       ],
-      title: 'ブログ',
+      title: 'Blog',
     }
   },
 }
@@ -80,5 +80,5 @@ export default {
 
 <style lang="sass" scoped>
 // タイトルのルーティング一致時の背景色変化
-$btn-active-opacity: 1
+// $btn-active-opacity: 1
 </style>

@@ -1,27 +1,82 @@
 <template>
-  <v-row>
-    <v-col cols="8">
-      <v-sheet rounded="lg" color="white" elevation="1">
-        <v-card
-          elevation="2"
-          min-height="100px"
-          min-width="100px"
-          color="white"
-        ></v-card>
-      </v-sheet>
-    </v-col>
-
-    <v-col cols="4">
-      <v-sheet rounded="lg" color="white" elevation="1">
-        <v-card
-          elevation="2"
-          min-height="100px"
-          min-width="100px"
-          color="white"
-        ></v-card>
-      </v-sheet>
-    </v-col>
-  </v-row>
+  <div>
+    <v-row>
+      <v-col cols="12">
+        <div>Latest Post</div>
+        <v-sheet rounded="lg" elevation="1">
+          <v-row>
+            <v-col cols="8">
+              <v-card
+                :key="posts[0].uuid"
+                elevation="2"
+                min-height="100px"
+                min-width="100px"
+                ><nuxt-link :to="{ path: `/posts/${posts[0].slug}` }">
+                  <v-img
+                    lazy-src="https://picsum.photos/id/11/10/6"
+                    max-height="360"
+                    max-width="600"
+                    :src="posts[0].feature_image"
+                  ></v-img></nuxt-link
+              ></v-card>
+            </v-col>
+            <v-col cols="4">
+              <v-card
+                :key="posts[0].uuid"
+                elevation="2"
+                min-height="100px"
+                min-width="100px"
+                ><nuxt-link :to="{ path: `/posts/${posts[0].slug}` }"
+                  ><v-card-title>{{ posts[0].title }}</v-card-title></nuxt-link
+                >
+                <v-card-text
+                  >{{ posts[0].reading_time }}分
+                </v-card-text></v-card
+              >
+            </v-col>
+          </v-row>
+        </v-sheet>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="8">
+        <div>Posts</div>
+        <v-sheet rounded="lg" elevation="1">
+          <template v-for="post in secondaryPosts">
+            <v-card
+              :key="post.uuid"
+              elevation="2"
+              min-height="100px"
+              min-width="100px"
+              ><nuxt-link :to="{ path: `/posts/${post.slug}` }">
+                <v-img
+                  lazy-src="https://picsum.photos/id/11/10/6"
+                  max-height="300"
+                  max-width="500"
+                  :src="post.feature_image"
+                ></v-img
+                >{{ post.title }}</nuxt-link
+              >
+              <v-card-text>{{ post.reading_time }}分 </v-card-text></v-card
+            >
+          </template>
+        </v-sheet>
+      </v-col>
+      <v-col cols="4">
+        <div>Tags</div>
+        <v-sheet rounded="lg" elevation="1">
+          <template v-for="tag in tags">
+            <v-chip :key="tag.uuid" color="secondary" label outlined>
+              <v-icon left> mdi-label </v-icon>
+              <nuxt-link :to="{ path: `/tags/${tag.slug}` }">{{
+                tag.name
+              }}</nuxt-link>
+            </v-chip>
+          </template>
+        </v-sheet>
+      </v-col>
+    </v-row>
+  </div>
   <!-- <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <div class="text-center">
@@ -104,20 +159,26 @@
 </template>
 
 <script>
-// import Logo from '~/components/Logo.vue'
+import {} from '@nuxtjs/composition-api'
 // import VuetifyLogo from '~/components/VuetifyLogo.vue'
-// import api from '~/api'
+import api from '~/api'
 
 export default {
-  components: {
-    // Logo,
-    // VuetifyLogo,
+  setup() {},
+  async asyncData() {
+    const pages = await api.page.getAll()
+    const posts = await api.post.getAll()
+    const tags = await api.tag.getAll()
+    return {
+      pages,
+      posts,
+      tags,
+    }
   },
-  async mounted() {
-    // const pages = await api.page.getAll()
-    // const posts = await api.post.getAll()
-    // console.log(pages)
-    // console.log(posts)
+  computed: {
+    secondaryPosts() {
+      return this.posts.filter((_, index) => index !== 0)
+    },
   },
 }
 </script>

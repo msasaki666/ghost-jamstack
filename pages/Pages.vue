@@ -1,6 +1,6 @@
 <template>
   <div class="pages">
-    <div>ページ</div>
+    <div>Pages</div>
     <ul>
       <li v-for="page in pages" :key="page.uuid">
         <nuxt-link :to="{ path: `/pages/${page.slug}` }">{{

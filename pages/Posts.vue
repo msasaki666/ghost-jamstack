@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <div>投稿</div>
+    <div>Posts</div>
     <ul>
       <li v-for="post in posts" :key="post.uuid">
         <nuxt-link :to="{ path: `/posts/${post.slug}` }">{{
