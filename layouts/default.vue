@@ -72,8 +72,13 @@ export default {
           to: '/tags',
         },
       ],
-      title: 'Vuetify.js',
+      title: 'ブログ',
     }
   },
 }
 </script>
+
+<style lang="sass" scoped>
+// タイトルのルーティング一致時の背景色変化
+$btn-active-opacity: 1
+</style>
