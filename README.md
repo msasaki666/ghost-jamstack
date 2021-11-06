@@ -1,5 +1,15 @@
 # ghost-jamstack
 
+## 覚え書き
+
+- ヘッドレスCMSの一つである[ghost](https://github.com/TryGhost/Ghost)を使ってみた
+
+## 起動方法
+
+- [公式のDockerイメージ](https://hub.docker.com/_/ghost)を元にローカルでghostのサーバーを起動(詳細は忘れた)
+- プロジェクトルートの`.env`に変数を定義([必要な変数はここ](https://github.com/msasaki666/ghost-jamstack/blob/master/nuxt.config.js#L74))
+- `yarn dev`
+
 ## Build Setup
 
 ```bash
