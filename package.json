@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.24.3",
-    "@tryghost/content-api": "^1.5.6",
+    "@tryghost/content-api": "^1.9.6",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3"
   },
